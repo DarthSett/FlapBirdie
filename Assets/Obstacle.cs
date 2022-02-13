@@ -21,6 +21,11 @@ public class Obstacle : MonoBehaviour
     void Update()
     {
         transform.position += ((Vector3.left * speed) * Time.deltaTime);
+        if (transform.position.x < -9)
+        {
+            Destroy(this.gameObject);
+        } 
+            
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -29,6 +34,3 @@ public class Obstacle : MonoBehaviour
         Debug.Log("Score: " + gameManager.Score);
     }
 }
-
-
-//TODO: Destroy objects
